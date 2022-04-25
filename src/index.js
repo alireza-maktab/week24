@@ -1,17 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import DT from './debounce-throttle/DT';
+import Portals from './portal/Portals';
+
+const LINK_STYLE = {
+  display: 'inline-block',
+  margin: '10px',
+}
+
+const isPortal = window.location.pathname.match('portals')
+const isDt = window.location.pathname.match("dt");
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+root.render(
+  <>
+    <a style={LINK_STYLE} href="/dt">
+      debounce - throttle
+    </a>
+    <a style={LINK_STYLE} href="/portals">
+      portals
+    </a>
+    <main style={{padding: '50px'}}>
+    {isPortal ? <Portals /> : null}
+    {isDt ? <DT /> : null}
+    </main>
+  </>
+);
