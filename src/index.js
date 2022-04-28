@@ -1,17 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import DT from './debounce-throttle/DT';
-import Portals from './portal/Portals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import DT from "./debounce-throttle/DT";
+import Portals from "./portal/Portals";
+import Challenge from "./debounce-throttle/challenge";
 
 const LINK_STYLE = {
-  display: 'inline-block',
-  margin: '10px',
-}
+  display: "inline-block",
+  margin: "10px",
+};
 
-const isPortal = window.location.pathname.match('portals')
+const isPortal = window.location.pathname.match("portals");
 const isDt = window.location.pathname.match("dt");
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <>
@@ -21,9 +22,9 @@ root.render(
     <a style={LINK_STYLE} href="/portals">
       portals
     </a>
-    <main style={{padding: '50px'}}>
-    {isPortal ? <Portals /> : null}
-    {isDt ? <DT /> : null}
+    <main style={{ padding: "50px" }}>
+      {isPortal ? <Challenge /> : null}
+      {isDt ? <DT /> : null}
     </main>
   </>
 );

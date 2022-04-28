@@ -40,6 +40,7 @@ export default function DT() {
   );
 }
 
+
 function debounce(cb, delay) {
   let timeout;
   return (...args) => {
@@ -47,12 +48,12 @@ function debounce(cb, delay) {
     timeout = setTimeout(() => {
       cb(...args);
     }, delay);
-  };
+  }
 }
 
 function throttle(cb, delay) {
   let shouldWait = false;
-  let waitingArgs;
+  let waitingArgs
 
   const timeoutFunc = () => {
     if (waitingArgs == null) {
@@ -62,16 +63,16 @@ function throttle(cb, delay) {
       waitingArgs = null;
       setTimeout(timeoutFunc, delay);
     }
-  };
+  }
 
   return (...args) => {
     if (shouldWait) {
       waitingArgs = args;
-      return;
+      return
     }
 
     cb(...args);
     shouldWait = true;
     setTimeout(timeoutFunc, delay);
-  };
+  }
 }
