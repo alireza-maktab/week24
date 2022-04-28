@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import DT from "./debounce-throttle/DT";
 import Portals from "./portal/Portals";
-import Challenge from "./debounce-throttle/challenge";
+import Challenge from "./portal/Challenge";
 
 const LINK_STYLE = {
   display: "inline-block",
