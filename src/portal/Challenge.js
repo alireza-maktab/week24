@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReactDOM from "react-dom";
 
 let index = 1;
 export default function Challenge() {
@@ -26,9 +27,12 @@ export default function Challenge() {
   return (
     <>
       <button onClick={handleAdd}>add</button>
-      {messages.map((m) => (
-        <p key={m.id}>{m.desc}</p>
-      ))}
+      {messages.map((m) =>
+        ReactDOM.createPortal(
+          <p key={m.id}>{m.desc}</p>,
+          document.getElementById("moon")
+        )
+      )}
     </>
   );
 }
